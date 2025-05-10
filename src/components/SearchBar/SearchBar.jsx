@@ -1,10 +1,13 @@
 import css from "./SearchBar.module.css";
+import toast from "react-hot-toast";
+
+const notify = () => toast("Please enter what you are looking for!");
 const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const inputValue = e.target.elements["search"].value;
     if (inputValue.trim() === "") {
-      alert("Please enter what you are looking for!");
+      notify();
       return;
     }
     onSubmit(inputValue);
